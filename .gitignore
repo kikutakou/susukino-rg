@@ -1,0 +1,40 @@
+# 依存関係
+node_modules/
+.pnpm-store/
+
+# ビルド出力
+dist/
+
+# 生成ファイル（pnpm generate-dataで再生成可能）
+public/assets/
+src/data.json
+
+# 環境・キャッシュ
+.env
+.env.local
+*.local
+.DS_Store
+Thumbs.db
+
+# エディタ
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ログ
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# TypeScript
+*.tsbuildinfo
+
+# 一時ファイル
+~$*
+
+# Office ファイル
+*.pptx
+*.xlsx
+*.docx
