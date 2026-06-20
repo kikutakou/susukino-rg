@@ -1,6 +1,6 @@
 import { readFileSync, writeFileSync } from 'node:fs'
 
-const htmlPath = 'dist/index.html'
+const htmlPath = 'docs/index.html'
 let html = readFileSync(htmlPath, 'utf-8')
 
 // Remove type="module" and crossorigin, add defer for DOM readiness
