@@ -1,8 +1,14 @@
-import { readFileSync, readdirSync, writeFileSync } from 'node:fs'
+import { copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
 import { extname, join } from 'node:path'
 
 const DATA_DIR = 'data'
 const OUTPUT_FILE = 'src/data.json'
+const ASSETS_DIR = 'public/assets'
+
+// Ensure assets directory exists
+if (!existsSync(ASSETS_DIR)) {
+  mkdirSync(ASSETS_DIR, { recursive: true })
+}
 
 // Get MIME type from extension
 function getMimeType(ext) {
