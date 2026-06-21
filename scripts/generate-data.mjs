@@ -69,21 +69,23 @@ for (const entry of entries) {
     (f) => f.includes('コメント') && f.endsWith('.txt'),
   )
 
-  if (!frontFile || !backFile) {
-    console.warn(
-      `Missing images in ${entry.name}: front=${frontFile}, back=${backFile}`,
-    )
+  if (!frontFile) {
+    console.warn(`Missing front image in ${entry.name}`)
     continue
   }
 
   // Copy images to assets
   const frontExt = extname(frontFile)
-  const backExt = extname(backFile)
   const frontDest = `${id}_front${frontExt}`
-  const backDest = `${id}_back${backExt}`
-
   copyFileSync(join(dirPath, frontFile), join(ASSETS_DIR, frontDest))
-  copyFileSync(join(dirPath, backFile), join(ASSETS_DIR, backDest))
+
+  // Copy back image if exists
+  let backDest = null
+  if (backFile) {
+    const backExt = extname(backFile)
+    backDest = `${id}_back${backExt}`
+    copyFileSync(join(dirPath, backFile), join(ASSETS_DIR, backDest))
+  }
 
   // Read comment
   let comment = ''
@@ -95,7 +97,7 @@ for (const entry of entries) {
     id,
     title,
     frontImage: `./assets/${frontDest}`,
-    backImage: `./assets/${backDest}`,
+    backImage: backDest ? `./assets/${backDest}` : null,
     comment,
   })
 
