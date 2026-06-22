@@ -1,7 +1,7 @@
 import { copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
 import { extname, join } from 'node:path'
 
-const DATA_DIR = 'data'
+const DATA_DIR = '/Users/s11253/Library/CloudStorage/Dropbox/Personal/子供/Aki/202504_新体操/役員関係/衣装データ'
 const OUTPUT_FILE = 'src/data.json'
 const ASSETS_DIR = 'public/assets'
 

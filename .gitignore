@@ -30,11 +30,3 @@ pnpm-debug.log*
 
 # TypeScript
 *.tsbuildinfo
-
-# 一時ファイル
-~$*
-
-# Office ファイル
-*.pptx
-*.xlsx
-*.docx
